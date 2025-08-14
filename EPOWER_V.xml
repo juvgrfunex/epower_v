@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<EVC2>
+
+	<!-- Application metadata -->
+	<Application>
+		<SoftwareVersion>12</SoftwareVersion>
+		<FileVersion>1</FileVersion>
+	</Application>
+	
+	<!-- Device specification -->
+	<Device>
+		<Name>EPOWER V</Name>
+		<Class>1</Class>
+		<BusType>1</BusType>
+		<BusSpeed>100</BusSpeed>
+		<Address Type="List">
+			<Value>0E</Value>
+		</Address>
+		<Detect Type="RegisterMatch">
+			<Register>
+				<Command>FB</Command>
+				<Data>EE</Data>
+			</Register>
+			<Register>
+				<Command>FC</Command>
+				<Data>EE</Data>
+			</Register>
+			<Register>
+				<Command>FD</Command>
+				<Data>EE</Data>
+			</Register>
+			<Register>
+				<Command>FE</Command>
+				<Data>EE</Data>
+			</Register>
+			<Register>
+				<Command>FF</Command>
+				<Data>EE</Data>
+			</Register>
+		</Detect>
+	<Constant> <!-- Read once -->
+		<Item>
+			<Name>FW Version</Name>
+			<Register Type="Hex">
+				<Command>1</Command>
+			</Register>
+		</Item>
+			<Item>
+				<Name>CPUID</Name>
+				<Register Type="Hex">
+					<Command>2</Command>
+					<Length>4</Length>
+				</Register>
+			</Item>
+	</Constant>
+	<Configuration>
+	<Item>
+		<Name>Top Display</Name>
+		<Register Type="List">
+			<Command>40</Command>
+			<StartBit>0</StartBit>
+			<EndBit>7</EndBit>
+			<Data Desc="L1 Voltage">0</Data>
+			<Data Desc="L1 Current">1</Data>
+			<Data Desc="L1 Temp">2</Data>
+			<Data Desc="L2 Voltage">3</Data>
+			<Data Desc="L2 Current">4</Data>
+			<Data Desc="L2 Temp">5</Data>
+
+		</Register>
+	</Item>
+	<Item>
+		<Name>Bottom Display</Name>
+		<Register Type="List">
+			<Command>41</Command>
+			<StartBit>0</StartBit>
+			<EndBit>7</EndBit>
+			<Data Desc="L1 Voltage">0</Data>
+			<Data Desc="L1 Current">1</Data>
+			<Data Desc="L1 Temp">2</Data>
+			<Data Desc="L2 Voltage">3</Data>
+			<Data Desc="L2 Current">4</Data>
+			<Data Desc="L2 Temp">5</Data>
+
+		</Register>
+	</Item>
+	<Item>
+		<Name>Loop 1 Boot Voltage</Name>
+		<Register Type="Math">
+			<Command>42</Command>
+			<Math>
+				<Factor>0.0125</Factor>
+				<Offset>0.00625</Offset>
+				<Max>A0</Max>
+				<Unit>V</Unit>
+			</Math>
+		</Register>
+	</Item>
+	<Item>
+		<Name>Loop 2 Boot Voltage</Name>
+		<Register Type="Math">
+			<Command>43</Command>
+			<Math>
+				<Factor>0.0125</Factor>
+				<Offset>0.00625</Offset>
+				<Max>A0</Max>
+				<Unit>V</Unit>
+			</Math>
+		</Register>
+	</Item>
+	<Item>
+		<Name>Loop 1 Mode</Name>
+		<Register Type="List">
+			<Command>44</Command>
+			<Data Desc="Disabled">0</Data>
+			<Data Desc="Enabled">1</Data>
+		</Register>
+	</Item>
+	<Item>
+		<Name>Loop 2 Mode</Name>
+		<Register Type="List">
+			<Command>45</Command>
+			<Data Desc="Disabled">0</Data>
+			<Data Desc="Enabled">1</Data>
+		</Register>
+	</Item>
+	<Item>
+		<Name>Display Orientation</Name>
+		<Register Type="List">
+			<Command>46</Command>
+			<Data Desc="Normal">0</Data>
+			<Data Desc="Flipped">1</Data>
+		</Register>
+	</Item>
+	</Configuration>
+	<Monitoring>
+		<Item>
+			<Name>l1 Voltage</Name>
+			<Register Type="Math">
+				<Command>80</Command>
+				<Length>2</Length>
+				<MsbFirst>True</MsbFirst>
+				<Math>
+					<Factor>1</Factor>f
+					<Offset>0</Offset>
+					<Unit>mV</Unit>
+					<Format>F0</Format>
+				</Math>
+			</Register>
+		</Item>
+		<Item>
+			<Name>l2 Voltage</Name>
+			<Register Type="Math">
+				<Command>81</Command>
+				<Length>2</Length>
+				<MsbFirst>True</MsbFirst>
+				<Math>
+					<Factor>1</Factor>
+					<Offset>0</Offset>
+					<Unit>mV</Unit>
+					<Format>F0</Format>
+				</Math>
+			</Register>
+		</Item>
+		<Item>
+			<Name>12V</Name>
+			<Register Type="Math">
+				<Command>82</Command>
+				<Length>2</Length>
+				<MsbFirst>True</MsbFirst>
+				<Math>
+					<Factor>0.00621</Factor>
+					<Offset>0</Offset>
+					<Unit>V</Unit>
+					<Format>F2</Format>
+				</Math>
+			</Register>
+		</Item>
+		<Item>
+			<Name>5V</Name>
+			<Register Type="Math">
+				<Command>83</Command>
+				<Length>2</Length>
+				<MsbFirst>True</MsbFirst>
+				<Math>
+					<Factor>0.002</Factor>
+					<Offset>0</Offset>
+					<Unit>V</Unit>
+					<Format>F2</Format>
+				</Math>
+			</Register>
+		</Item>
+		<Item>
+			<Name>3V</Name>
+			<Register Type="Math">
+				<Command>84</Command>
+				<Length>2</Length>
+				<MsbFirst>True</MsbFirst>
+				<Math>
+					<Factor>0.002</Factor>
+					<Offset>0</Offset>
+					<Unit>V</Unit>
+					<Format>F2</Format>
+				</Math>
+			</Register>
+		</Item>
+	</Monitoring>
+	</Device>
+</EVC2>

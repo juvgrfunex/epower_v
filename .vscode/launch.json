@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    
+    "configurations": [
+        {
+            "name": "epower_v cortex debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/target/thumbv6m-none-eabi/debug/epower_v",
+            "device": "lpc11u68",
+            "servertype": "jlink",
+            "serverpath": "/opt/SEGGER/JLink/JLinkGDBServer",
+            "svdFile": "${workspaceRoot}/lpc11u6x.svd",
+            "gdbPath": "/usr/bin/gdb-multiarch"
+        },
+        {
+            "name": "epower_v cortex release",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/target/thumbv6m-none-eabi/release/epower_v",
+            "device": "lpc11u68",
+            "servertype": "jlink",
+            "serverpath": "/opt/SEGGER/JLink/JLinkGDBServer",
+            "svdFile": "${workspaceRoot}/lpc11u6x.svd",
+            "gdbPath": "/usr/bin/gdb-multiarch"
+        }
+    ]
+}
