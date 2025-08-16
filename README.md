@@ -2,6 +2,9 @@
 
 Unofficial Firmware for the [EVGA EPOWER V](https://www.evga.com/products/pdf/100-UV-0600.pdf) power board.
 
+![abc](img/bench_shaggysvk.jpg)
+*Epower in action, picture kindly provided by [ShaggySVK](https://hwbot.org/users/shaggysvk)*
+
 ## **This firmware is provided as is, without any kind of liability or warranty, either from me or EVGA. Use at your own risk only! I have no affiliation with EVGA.**
 
 ## How to flash
